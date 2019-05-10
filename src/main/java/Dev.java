@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Dev {
 
@@ -10,6 +12,16 @@ public class Dev {
 
     List<Dev> selectRelecteurs(List<Dev> devs) {
         devs.remove(this);
+        List<Dev> relecteurs = new ArrayList<Dev>();
+        if(devs.size()>=3){
+            Random random = new Random();
+            int index1 = random.nextInt(devs.size());
+            int index2 = random.nextInt(devs.size());
+            relecteurs.add(devs.get(index1));
+            devs.remove(devs.get(index1));
+            relecteurs.add(devs.get(index2));
+            return relecteurs;
+        }
         return devs;
     }
 
@@ -26,5 +38,12 @@ public class Dev {
     @Override
     public int hashCode() {
         return nom != null ? nom.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Dev{" +
+                "nom='" + nom + '\'' +
+                '}';
     }
 }
