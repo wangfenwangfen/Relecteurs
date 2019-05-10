@@ -26,7 +26,8 @@ public class RelecteurTest {
         devs.add(dev2);
         devs.add(dev3);
 
-        List<Dev> relecteurs = dev1.selectRelecteurs(devs);
+        Selector selector = new Selector(devs);
+        List<Dev> relecteurs = selector.selectRelecteurs(dev1);
 
         List<Dev> relecteursExpected = new ArrayList<Dev>();
         relecteursExpected.add(dev2);
@@ -50,7 +51,8 @@ public class RelecteurTest {
         devs.add(dev9);
         devs.add(dev10);
 
-        List<Dev> relecteurs = dev1.selectRelecteurs(devs);
+        Selector selector = new Selector(devs);
+        List<Dev> relecteurs = selector.selectRelecteurs(dev1);
 
         Assertions.assertThat(relecteurs.size()).isEqualTo(2);
     }
@@ -70,7 +72,8 @@ public class RelecteurTest {
         devs.add(dev9);
         devs.add(dev10);
 
-        List<Dev> relecteurs = dev1.selectRelecteurs(devs);
+        Selector selector = new Selector(devs);
+        List<Dev> relecteurs = selector.selectRelecteurs(dev1);
 
         Assertions.assertThat(relecteurs).doesNotContain(dev1);
     }
@@ -90,7 +93,8 @@ public class RelecteurTest {
         devs.add(dev9);
         devs.add(dev10);
 
-        List<Dev> relecteurs = dev1.selectRelecteurs(devs);
+        Selector selector = new Selector(devs);
+        List<Dev> relecteurs = selector.selectRelecteurs(dev1);
 
         Assertions.assertThat(relecteurs.get(0).equals(relecteurs.get(1))).isFalse();
     }
