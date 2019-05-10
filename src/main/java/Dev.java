@@ -16,7 +16,7 @@ public class Dev {
         if(devs.size()>=3){
             Random random = new Random();
             int index1 = random.nextInt(devs.size());
-            int index2 = random.nextInt(devs.size());
+            int index2 = random.nextInt(devs.size()-1);
             relecteurs.add(devs.get(index1));
             devs.remove(devs.get(index1));
             relecteurs.add(devs.get(index2));
