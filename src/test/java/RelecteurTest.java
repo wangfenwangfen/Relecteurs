@@ -52,12 +52,12 @@ public class RelecteurTest {
 
         List<Dev> relecteurs = dev1.selectRelecteurs(devs);
 
-        List<Dev> relecteursExpected = new ArrayList<Dev>();
+       // List<Dev> relecteursExpected = new ArrayList<Dev>();
         //FAKE random a faire
         //relecteursExpected.add(dev2);
        // relecteursExpected.add(dev3);
         Assertions.assertThat(relecteurs.size()).isEqualTo(2);
         Assertions.assertThat(relecteurs).doesNotContain(dev1);
+        Assertions.assertThat(relecteurs.get(0).equals(relecteurs.get(1))).isFalse();
     }
-
 }
