@@ -98,4 +98,13 @@ public class RelecteurTest {
 
         Assertions.assertThat(relecteurs.get(0).equals(relecteurs.get(1))).isFalse();
     }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void should_throw_illegal_argument_exception_if_have_less_than_three_devs_in_list() {
+        List<Dev> devs = new ArrayList<Dev>();
+        devs.add(dev1);
+        devs.add(dev2);
+
+        Selector selector = new Selector(dev1, devs);
+    }
 }

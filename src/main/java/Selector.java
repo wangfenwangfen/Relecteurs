@@ -10,6 +10,9 @@ class Selector {
     Selector(Dev dev, List<Dev> devs) {
         this.dev = dev;
         this.devs = devs;
+        if(devs.size()<3){
+            throw new IllegalArgumentException("There's not enough devs (< 3) in list candidate");
+        }
     }
 
     List<Dev> selectRelecteurs() {
@@ -17,7 +20,7 @@ class Selector {
 
         List<Dev> relecteurs = new ArrayList<Dev>();
 
-        if(devs.size()>=3){
+        if(devs.size()>3){
             Random random = new Random();
             int index1 = getFistRelecteurIndex(random);
             addRelecteurSelected(relecteurs, index1);
