@@ -65,12 +65,6 @@ public class RelecteurTest {
         developers.add(developer2);
         developers.add(developer3);
         developers.add(developer4);
-        developers.add(developer5);
-        developers.add(developer6);
-        developers.add(developer7);
-        developers.add(developer8);
-        developers.add(developer9);
-        developers.add(developer10);
 
         Selector selector = new Selector(developer1, developers);
         List<Developer> relecteurs = selector.selectRelecteurs();
@@ -86,12 +80,6 @@ public class RelecteurTest {
         developers.add(developer2);
         developers.add(developer3);
         developers.add(developer4);
-        developers.add(developer5);
-        developers.add(developer6);
-        developers.add(developer7);
-        developers.add(developer8);
-        developers.add(developer9);
-        developers.add(developer10);
 
         Selector selector = new Selector(developer1, developers);
         List<Developer> relecteurs = selector.selectRelecteurs();

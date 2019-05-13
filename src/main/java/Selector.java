@@ -6,6 +6,7 @@ class Selector {
 
     private  List<Developer> developers;
     private Developer developer;
+    private int index1;
 
     Selector(Developer developer, List<Developer> developers) {
         this.developer = developer;
@@ -16,42 +17,38 @@ class Selector {
     }
 
     List<Developer> selectRelecteurs() {
-        removeDemandeur();
 
-        List<Developer> relecteurs = new ArrayList<Developer>();
+        List<Developer> relecteurs;
+        relecteurs = listWithoutTheDeveloper(this.developer);
 
         if(developers.size()>3){
+            List<Developer> relecteursFinal = new ArrayList<Developer>();
+
             Random random = new Random();
-            int index1 = getFistRelecteurIndex(random);
-            addRelecteurSelected(relecteurs, index1);
+            int index1 = getRelecteurIndex(random, relecteurs);
+            relecteursFinal.add(relecteurs.get(index1));
 
-            removeFirstRelecteurSelectedFromOriginListCandidat(index1);
-            int index2 = getSecondRelecteurIndex(random);
-            addRelecteurSelected(relecteurs, index2);
+          relecteurs =  listWithoutTheDeveloper(relecteurs.get(index1));
 
-            return relecteurs;
+            int index2 = getRelecteurIndex(random,relecteurs);
+            relecteursFinal.add(relecteurs.get(index2));
+
+            return relecteursFinal;
         }
-        return developers;
+        return relecteurs;
     }
 
-    private void addRelecteurSelected(List<Developer> relecteurs, int index1) {
-        relecteurs.add(developers.get(index1));
+    private List<Developer> listWithoutTheDeveloper(Developer developerParam) {
+        List<Developer> relecteurs = new ArrayList<Developer>();
+        for(Developer developer : developers){
+            if(!developer.equals(developerParam)){
+                relecteurs.add(developer);
+            }
+        }
+        return relecteurs;
     }
 
-    private  void removeDemandeur() {
-        developers.remove(developer);
+    private int getRelecteurIndex(Random random, List<Developer> relecteurs) {
+        return random.nextInt(relecteurs.size());
     }
-
-    private int getFistRelecteurIndex(Random random) {
-        return random.nextInt(developers.size());
-    }
-
-    private int getSecondRelecteurIndex(Random random) {
-        return random.nextInt(developers.size()-1);
-    }
-
-    private  void removeFirstRelecteurSelectedFromOriginListCandidat(int index1) {
-        developers.remove(developers.get(index1));
-    }
-
 }
