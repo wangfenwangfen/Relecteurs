@@ -6,32 +6,32 @@ import java.util.List;
 
 public class RelecteurTest {
 
-    private Dev dev1 = new Dev("Houssam");
-    private Dev dev2 = new Dev("Boris");
-    private Dev dev3 = new Dev("Sandy");
-    private Dev dev4 = new Dev("Kevin");
-    private Dev dev5 = new Dev("Tristan");
-    private Dev dev6 = new Dev("Mathieu");
-    private Dev dev7 = new Dev("Erwan");
-    private Dev dev8 = new Dev("Haifa");
-    private Dev dev9 = new Dev("Fen");
-    private Dev dev10 = new Dev("Hadrien");
+    private Developer developer1 = new Developer("Houssam");
+    private Developer developer2 = new Developer("Boris");
+    private Developer developer3 = new Developer("Sandy");
+    private Developer developer4 = new Developer("Kevin");
+    private Developer developer5 = new Developer("Tristan");
+    private Developer developer6 = new Developer("Mathieu");
+    private Developer developer7 = new Developer("Erwan");
+    private Developer developer8 = new Developer("Haifa");
+    private Developer developer9 = new Developer("Fen");
+    private Developer developer10 = new Developer("Hadrien");
 
 
     @Test
     public void only_three_persons_in_list_should_return_the_rest_relecteurs_without_demandeur() {
 
-        List<Dev> devs = new ArrayList<Dev>();
-        devs.add( dev1);
-        devs.add(dev2);
-        devs.add(dev3);
+        List<Developer> developers = new ArrayList<Developer>();
+        developers.add(developer1);
+        developers.add(developer2);
+        developers.add(developer3);
 
-        Selector selector = new Selector(dev1,devs);
-        List<Dev> relecteurs = selector.selectRelecteurs();
+        Selector selector = new Selector(developer1, developers);
+        List<Developer> relecteurs = selector.selectRelecteurs();
 
-        List<Dev> relecteursExpected = new ArrayList<Dev>();
-        relecteursExpected.add(dev2);
-        relecteursExpected.add(dev3);
+        List<Developer> relecteursExpected = new ArrayList<Developer>();
+        relecteursExpected.add(developer2);
+        relecteursExpected.add(developer3);
 
         Assertions.assertThat(relecteurs).isEqualTo(relecteursExpected);
     }
@@ -39,20 +39,20 @@ public class RelecteurTest {
     @Test
     public void more_than_three_persons_in_list_should_return_two_relecteurs() {
 
-        List<Dev> devs = new ArrayList<Dev>();
-        devs.add( dev1);
-        devs.add(dev2);
-        devs.add(dev3);
-        devs.add(dev4);
-        devs.add(dev5);
-        devs.add(dev6);
-        devs.add(dev7);
-        devs.add(dev8);
-        devs.add(dev9);
-        devs.add(dev10);
+        List<Developer> developers = new ArrayList<Developer>();
+        developers.add(developer1);
+        developers.add(developer2);
+        developers.add(developer3);
+        developers.add(developer4);
+        developers.add(developer5);
+        developers.add(developer6);
+        developers.add(developer7);
+        developers.add(developer8);
+        developers.add(developer9);
+        developers.add(developer10);
 
-        Selector selector = new Selector(dev1,devs);
-        List<Dev> relecteurs = selector.selectRelecteurs();
+        Selector selector = new Selector(developer1, developers);
+        List<Developer> relecteurs = selector.selectRelecteurs();
 
         Assertions.assertThat(relecteurs.size()).isEqualTo(2);
     }
@@ -60,51 +60,51 @@ public class RelecteurTest {
     @Test
     public void more_than_three_persons_in_list_should_return_two_relecteurs_without_demandeur() {
 
-        List<Dev> devs = new ArrayList<Dev>();
-        devs.add( dev1);
-        devs.add(dev2);
-        devs.add(dev3);
-        devs.add(dev4);
-        devs.add(dev5);
-        devs.add(dev6);
-        devs.add(dev7);
-        devs.add(dev8);
-        devs.add(dev9);
-        devs.add(dev10);
+        List<Developer> developers = new ArrayList<Developer>();
+        developers.add(developer1);
+        developers.add(developer2);
+        developers.add(developer3);
+        developers.add(developer4);
+        developers.add(developer5);
+        developers.add(developer6);
+        developers.add(developer7);
+        developers.add(developer8);
+        developers.add(developer9);
+        developers.add(developer10);
 
-        Selector selector = new Selector(dev1,devs);
-        List<Dev> relecteurs = selector.selectRelecteurs();
+        Selector selector = new Selector(developer1, developers);
+        List<Developer> relecteurs = selector.selectRelecteurs();
 
-        Assertions.assertThat(relecteurs).doesNotContain(dev1);
+        Assertions.assertThat(relecteurs).doesNotContain(developer1);
     }
 
     @Test
     public void more_than_three_persons_in_list_should_return_two_different_relecteurs_without_demandeur() {
 
-        List<Dev> devs = new ArrayList<Dev>();
-        devs.add( dev1);
-        devs.add(dev2);
-        devs.add(dev3);
-        devs.add(dev4);
-        devs.add(dev5);
-        devs.add(dev6);
-        devs.add(dev7);
-        devs.add(dev8);
-        devs.add(dev9);
-        devs.add(dev10);
+        List<Developer> developers = new ArrayList<Developer>();
+        developers.add(developer1);
+        developers.add(developer2);
+        developers.add(developer3);
+        developers.add(developer4);
+        developers.add(developer5);
+        developers.add(developer6);
+        developers.add(developer7);
+        developers.add(developer8);
+        developers.add(developer9);
+        developers.add(developer10);
 
-        Selector selector = new Selector(dev1,devs);
-        List<Dev> relecteurs = selector.selectRelecteurs();
+        Selector selector = new Selector(developer1, developers);
+        List<Developer> relecteurs = selector.selectRelecteurs();
 
         Assertions.assertThat(relecteurs.get(0).equals(relecteurs.get(1))).isFalse();
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void should_throw_illegal_argument_exception_if_have_less_than_three_devs_in_list() {
-        List<Dev> devs = new ArrayList<Dev>();
-        devs.add(dev1);
-        devs.add(dev2);
+        List<Developer> developers = new ArrayList<Developer>();
+        developers.add(developer1);
+        developers.add(developer2);
 
-        Selector selector = new Selector(dev1, devs);
+        Selector selector = new Selector(developer1, developers);
     }
 }

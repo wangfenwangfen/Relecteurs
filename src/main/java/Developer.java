@@ -1,8 +1,8 @@
-public class Dev {
+public class Developer {
 
     private final String nom;
 
-    Dev(String nom) {
+    Developer(String nom) {
         this.nom = nom;
     }
 
@@ -11,9 +11,9 @@ public class Dev {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Dev dev = (Dev) o;
+        Developer developer = (Developer) o;
 
-        return nom != null ? nom.equals(dev.nom) : dev.nom == null;
+        return nom != null ? nom.equals(developer.nom) : developer.nom == null;
     }
 
     @Override

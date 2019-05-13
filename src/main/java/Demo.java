@@ -4,29 +4,29 @@ import java.util.List;
 public class Demo {
 
     public static void main(String[] args) {
-         Dev dev1 = new Dev("Houssam");
-         Dev dev2 = new Dev("Boris");
-         Dev dev3 = new Dev("Sandy");
-         Dev dev4 = new Dev("Kevin");
-         Dev dev5 = new Dev("Tristan");
-         Dev dev6 = new Dev("Mathieu");
-         Dev dev7 = new Dev("Erwan");
-         Dev dev8 = new Dev("Haifa");
-         Dev dev9 = new Dev("Fen");
-         Dev dev10 = new Dev("Hadrien");
-        List<Dev> devs = new ArrayList<Dev>();
-        devs.add( dev1);
-        devs.add(dev2);
-        devs.add(dev3);
-        devs.add(dev4);
-        devs.add(dev5);
-        devs.add(dev6);
-        devs.add(dev7);
-        devs.add(dev8);
-        devs.add(dev9);
-        devs.add(dev10);
-        Selector selector = new Selector(dev1,devs);
-        List<Dev> relecteurs = selector.selectRelecteurs();
+         Developer developer1 = new Developer("Houssam");
+         Developer developer2 = new Developer("Boris");
+         Developer developer3 = new Developer("Sandy");
+         Developer developer4 = new Developer("Kevin");
+         Developer developer5 = new Developer("Tristan");
+         Developer developer6 = new Developer("Mathieu");
+         Developer developer7 = new Developer("Erwan");
+         Developer developer8 = new Developer("Haifa");
+         Developer developer9 = new Developer("Fen");
+         Developer developer10 = new Developer("Hadrien");
+        List<Developer> developers = new ArrayList<Developer>();
+        developers.add(developer1);
+        developers.add(developer2);
+        developers.add(developer3);
+        developers.add(developer4);
+        developers.add(developer5);
+        developers.add(developer6);
+        developers.add(developer7);
+        developers.add(developer8);
+        developers.add(developer9);
+        developers.add(developer10);
+        Selector selector = new Selector(developer1, developers);
+        List<Developer> relecteurs = selector.selectRelecteurs();
 
         System.out.println(relecteurs);
     }

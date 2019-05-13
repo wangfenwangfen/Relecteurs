@@ -4,23 +4,23 @@ import java.util.Random;
 
 class Selector {
 
-    private  List<Dev> devs;
-    private Dev dev;
+    private  List<Developer> developers;
+    private Developer developer;
 
-    Selector(Dev dev, List<Dev> devs) {
-        this.dev = dev;
-        this.devs = devs;
-        if(devs.size()<3){
+    Selector(Developer developer, List<Developer> developers) {
+        this.developer = developer;
+        this.developers = developers;
+        if(developers.size()<3){
             throw new IllegalArgumentException("There's not enough devs (< 3) in list candidate");
         }
     }
 
-    List<Dev> selectRelecteurs() {
+    List<Developer> selectRelecteurs() {
         removeDemandeur();
 
-        List<Dev> relecteurs = new ArrayList<Dev>();
+        List<Developer> relecteurs = new ArrayList<Developer>();
 
-        if(devs.size()>3){
+        if(developers.size()>3){
             Random random = new Random();
             int index1 = getFistRelecteurIndex(random);
             addRelecteurSelected(relecteurs, index1);
@@ -31,27 +31,27 @@ class Selector {
 
             return relecteurs;
         }
-        return devs;
+        return developers;
     }
 
-    private void addRelecteurSelected(List<Dev> relecteurs, int index1) {
-        relecteurs.add(devs.get(index1));
+    private void addRelecteurSelected(List<Developer> relecteurs, int index1) {
+        relecteurs.add(developers.get(index1));
     }
 
     private  void removeDemandeur() {
-        devs.remove(dev);
+        developers.remove(developer);
     }
 
     private int getFistRelecteurIndex(Random random) {
-        return random.nextInt(devs.size());
+        return random.nextInt(developers.size());
     }
 
     private int getSecondRelecteurIndex(Random random) {
-        return random.nextInt(devs.size()-1);
+        return random.nextInt(developers.size()-1);
     }
 
     private  void removeFirstRelecteurSelectedFromOriginListCandidat(int index1) {
-        devs.remove(devs.get(index1));
+        developers.remove(developers.get(index1));
     }
 
 }
