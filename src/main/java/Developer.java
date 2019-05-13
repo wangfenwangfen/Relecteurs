@@ -23,8 +23,6 @@ public class Developer {
 
     @Override
     public String toString() {
-        return "Dev{" +
-                "nom='" + nom + '\'' +
-                '}';
+        return  nom ;
     }
 }

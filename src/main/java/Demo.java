@@ -27,12 +27,10 @@ public class Demo {
         developers.add(developer10);
         Selector selector = new Selector(developers);
 
-        List<Developer> relecteurs = selector.selectRelecteurs("Houssam");
+        DialoguePanelUtile dialoguePanelUtile = new DialoguePanelUtile();
 
-
-        System.out.println(relecteurs);
+        dialoguePanelUtile.dialoguePanel(selector);
     }
-
 }
 
 
