@@ -25,8 +25,10 @@ public class Demo {
         developers.add(developer8);
         developers.add(developer9);
         developers.add(developer10);
-        Selector selector = new Selector(developer1, developers);
-        List<Developer> relecteurs = selector.selectRelecteurs();
+        Selector selector = new Selector(developers);
+
+        List<Developer> relecteurs = selector.selectRelecteurs("Houssam");
+
 
         System.out.println(relecteurs);
     }

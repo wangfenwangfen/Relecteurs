@@ -5,20 +5,18 @@ import java.util.Random;
 class Selector {
 
     private  List<Developer> developers;
-    private Developer developer;
 
-    Selector(Developer developer, List<Developer> developers) {
-        this.developer = developer;
+    Selector(List<Developer> developers) {
         this.developers = developers;
         if(developers.size()<3){
             throw new IllegalArgumentException("There's not enough devs (< 3) in list candidate");
         }
     }
 
-    List<Developer> selectRelecteurs() {
-
+    List<Developer> selectRelecteurs(String name) {
+        Developer author = new Developer(name);
         List<Developer> relecteurs;
-        relecteurs = listWithoutTheDeveloper(this.developer,this.developers);
+        relecteurs = listWithoutTheDeveloper(author,this.developers);
 
         if(developers.size()>3){
             List<Developer> relecteursFinal = new ArrayList<Developer>();

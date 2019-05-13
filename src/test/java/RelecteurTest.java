@@ -26,8 +26,8 @@ public class RelecteurTest {
         developers.add(developer2);
         developers.add(developer3);
 
-        Selector selector = new Selector(developer1, developers);
-        List<Developer> relecteurs = selector.selectRelecteurs();
+        Selector selector = new Selector(developers);
+        List<Developer> relecteurs = selector.selectRelecteurs("Houssam");
 
         List<Developer> relecteursExpected = new ArrayList<Developer>();
         relecteursExpected.add(developer2);
@@ -51,8 +51,8 @@ public class RelecteurTest {
         developers.add(developer9);
         developers.add(developer10);
 
-        Selector selector = new Selector(developer1, developers);
-        List<Developer> relecteurs = selector.selectRelecteurs();
+        Selector selector = new Selector(developers);
+        List<Developer> relecteurs = selector.selectRelecteurs("Houssam");
 
         Assertions.assertThat(relecteurs.size()).isEqualTo(2);
     }
@@ -66,8 +66,8 @@ public class RelecteurTest {
         developers.add(developer3);
         developers.add(developer4);
 
-        Selector selector = new Selector(developer1, developers);
-        List<Developer> relecteurs = selector.selectRelecteurs();
+        Selector selector = new Selector(developers);
+        List<Developer> relecteurs = selector.selectRelecteurs("Houssam");
 
         Assertions.assertThat(relecteurs).doesNotContain(developer1);
     }
@@ -81,8 +81,8 @@ public class RelecteurTest {
         developers.add(developer3);
         developers.add(developer4);
 
-        Selector selector = new Selector(developer1, developers);
-        List<Developer> relecteurs = selector.selectRelecteurs();
+        Selector selector = new Selector(developers);
+        List<Developer> relecteurs = selector.selectRelecteurs("Houssam");
 
         Assertions.assertThat(relecteurs.get(0).equals(relecteurs.get(1))).isFalse();
     }
@@ -93,6 +93,6 @@ public class RelecteurTest {
         developers.add(developer1);
         developers.add(developer2);
 
-        Selector selector = new Selector(developer1, developers);
+        Selector selector = new Selector(developers);
     }
 }
