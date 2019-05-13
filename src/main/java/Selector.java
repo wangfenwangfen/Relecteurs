@@ -6,7 +6,6 @@ class Selector {
 
     private  List<Developer> developers;
     private Developer developer;
-    private int index1;
 
     Selector(Developer developer, List<Developer> developers) {
         this.developer = developer;
@@ -19,7 +18,7 @@ class Selector {
     List<Developer> selectRelecteurs() {
 
         List<Developer> relecteurs;
-        relecteurs = listWithoutTheDeveloper(this.developer);
+        relecteurs = listWithoutTheDeveloper(this.developer,this.developers);
 
         if(developers.size()>3){
             List<Developer> relecteursFinal = new ArrayList<Developer>();
@@ -28,7 +27,7 @@ class Selector {
             int index1 = getRelecteurIndex(random, relecteurs);
             relecteursFinal.add(relecteurs.get(index1));
 
-          relecteurs =  listWithoutTheDeveloper(relecteurs.get(index1));
+          relecteurs =  listWithoutTheDeveloper(relecteurs.get(index1),relecteurs);
 
             int index2 = getRelecteurIndex(random,relecteurs);
             relecteursFinal.add(relecteurs.get(index2));
@@ -38,7 +37,7 @@ class Selector {
         return relecteurs;
     }
 
-    private List<Developer> listWithoutTheDeveloper(Developer developerParam) {
+    private List<Developer> listWithoutTheDeveloper(Developer developerParam, List<Developer>developers) {
         List<Developer> relecteurs = new ArrayList<Developer>();
         for(Developer developer : developers){
             if(!developer.equals(developerParam)){
